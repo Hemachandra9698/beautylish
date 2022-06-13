@@ -1,0 +1,15 @@
+<dl>
+    <strong>
+        <dt>Statistics for Final sorted removed duplicates/hidden list</dt>
+    </strong>
+    <dd>- Total no of Unique Products: {{ stats["filtered"]["nproducts"] }}</dd>
+    <dd>- Total no of Unique Brands: {{ stats["filtered"]["nbrands"] }}</dd>
+    <dd>- Average Price of the Products: {{ stats["filtered"]["avg_price"] | round(2) }}</dd>
+    <br>
+    <strong>
+        <dt>Statistics for Original Product list</dt>
+    </strong>
+    <dd>- Total no of Unique Products: {{ stats["unfiltered"]["nproducts"] }}</dd>
+    <dd>- Total no of Unique Brands: {{ stats["unfiltered"]["nbrands"] }}</dd>
+    <dd>- Average Price of the Products: {{ stats["unfiltered"]["avg_price"] | round(2) }}</dd>
+</dl>

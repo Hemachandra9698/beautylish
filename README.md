@@ -77,3 +77,20 @@ That is raw product data
 
 http://127.0.0.1:5001/
 ```
+
+## Running Test cases
+We have written an extensive test cases for testing the datasource and utils logic.
+```
+For running all test cases open a terminal and navigate to the project directory.
+Run the following commands
+# pytest 
+
+For running tests of test_utils.py
+# pytest tests/test_utils.py
+
+For running tests of test_rest_data_source.py
+# pytest tests/test_rest_data_source.py
+```
+
+
+![Test Cases Passed](test_passed.png?raw=true "Title")

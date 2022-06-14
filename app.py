@@ -26,21 +26,6 @@ def get_stats_for_filtered_and_org_products(org_products=None, filtered_products
     return {'stats': stats, 'stats_template': "statistics.html"}
 
 
-@app.route("/statistics", methods=["GET"])
-def get_statistics():
-    """
-    gets invoked when opened https://<host>:<port>/statistics
-    gets statistics for both filtered and unfiltered products.
-    statistics -> no of unique products, no of unique brands, avg of price
-    :return: html template that shows the statistics of the filtered and unfiltered products
-    """
-    result_context = get_stats_for_filtered_and_org_products()
-    return render_template(
-        result_context.get('stats_template', 'statistics.html'),
-        stats=result_context['stats']
-    )
-
-
 def get_org_products_and_filtered_sorted_products():
     """
     gets the raw product data, filters based on status and sorts the products based on sort_args provided
@@ -73,6 +58,21 @@ def get_org_products_and_filtered_sorted_products():
     ]
     return {'org_products': org_products, 'filtered_sorted_products': filtered_sorted_products,
             'products_template': 'products_table.html', 'col_names': col_names}
+
+
+@app.route("/statistics", methods=["GET"])
+def get_statistics():
+    """
+    gets invoked when opened https://<host>:<port>/statistics
+    gets statistics for both filtered and unfiltered products.
+    statistics -> no of unique products, no of unique brands, avg of price
+    :return: html template that shows the statistics of the filtered and unfiltered products
+    """
+    result_context = get_stats_for_filtered_and_org_products()
+    return render_template(
+        result_context.get('stats_template', 'statistics.html'),
+        stats=result_context['stats']
+    )
 
 
 @app.route("/products", methods=["GET"])
